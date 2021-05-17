@@ -1,0 +1,219 @@
+/*put this in head - <link rel="stylesheet" href="package-V1.1/Improved-SidebarV1.1.css" />*/
+
+/*======!! SIDEBAR WON'T WORK WITHOUT JS! !!======*/
+
+@import url("https://fonts.googleapis.com/css2?family=Lato&family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap");
+
+/*----menu btn----*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.menu-btn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+
+.menu-btn_burger,
+.menu-btn_burger-dark {
+  width: 50px;
+  height: 6px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(255, 101, 47, 0.2);
+  transition: all 0.5s ease-in-out;
+}
+
+.menu-btn_burger {
+  background: #fff;
+}
+
+.menu-btn_burger-dark {
+  background: #333;
+}
+
+.menu-btn_burger::before,
+.menu-btn_burger::after,
+.menu-btn_burger-dark::before,
+.menu-btn_burger-dark::after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 6px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(255, 101, 47, 0.2);
+  transition: all 0.5s ease-in-out;
+}
+
+.menu-btn_burger::before,
+.menu-btn_burger::after {
+  background: #fff;
+}
+
+.menu-btn_burger-dark::before,
+.menu-btn_burger-dark::after {
+  background: #333;
+}
+
+.menu-btn_burger::before,
+.menu-btn_burger-dark::before {
+  transform: translateY(-16px);
+}
+
+.menu-btn_burger::after,
+.menu-btn_burger-dark::after {
+  transform: translateY(16px);
+}
+
+/*ANIMATION*/
+
+.menu-btn.open .menu-btn_burger,
+.menu-btn.open .menu-btn_burger-dark,
+.menu-btn.open .menu-btn_burger::before,
+.menu-btn.open .menu-btn_burger::after,
+.menu-btn.open .menu-btn_burger-dark::before,
+.menu-btn.open .menu-btn_burger-dark::after {
+  background: rgb(255, 100, 80);
+}
+
+.menu-btn.open .menu-btn_burger,
+.menu-btn.open .menu-btn_burger-dark {
+  box-shadow: none;
+}
+
+.menu-btn.open {
+  background: rgba(255, 100, 80, 0.2);
+}
+
+/*---------menu btn end-----------*/
+
+/*---------styles for side bar---------*/
+
+/*SIDEBAR*/
+
+.logo {
+  color: #fff;
+  font-family: "Lato", sans-serif;
+  font-size: 48px;
+}
+
+.logo > b {
+  color: rgb(255, 100, 80);
+}
+
+.modal.sidebar {
+  position: fixed;
+  z-index: 200;
+  width: 20vw;
+  height: 100vh;
+  background: #222;
+  left: -20vw;
+  transition: left 1s ease-in-out;
+  border-right: #666 2px solid;
+}
+
+.modal.sidebar .logo {
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.modal.sidebar .close {
+  display: flex;
+  justify-content: flex-end;
+  color: #fff;
+  font-size: 48px;
+  text-align: right;
+}
+
+.modal.sidebar .close .close-button {
+  padding: 0 1rem;
+  width: min-content;
+  cursor: pointer;
+}
+
+.modal.sidebar .content {
+  padding: 4rem 0;
+}
+
+.modal.sidebar .content .nav {
+  list-style: none;
+}
+
+.modal.sidebar .content .nav .nav-item {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.modal.sidebar .content .nav .nav-item .nav-link {
+  text-decoration: none;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 200;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.modal.sidebar .content .nav .nav-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.modal.sidebar.sidebar-light .content .nav .nav-item .nav-link {
+  color: #000;
+  font-weight: 300;
+}
+
+.modal.sidebar .content .nav .nav-item:hover .nav-link {
+  color: rgb(255, 100, 80);
+}
+
+.modal.sidebar .content .nav .nav-item .nav-link.active {
+  color: rgb(255, 100, 80);
+}
+
+.overlay {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.4);
+  content: " ";
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  display: none;
+}
+
+/*sidebar-light*/
+
+.modal.sidebar.sidebar-light .logo {
+  color: #000;
+}
+
+.modal.sidebar.sidebar-light {
+  background: #fff;
+}
+
+.modal.sidebar.sidebar-light .close {
+  color: #000;
+}
+
+.modal.sidebar.sidebar-light .content .nav .nav-item:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/*sidebar open*/
+
+.modal.sidebar.open {
+  left: 0;
+}
+
+.overlay.open {
+  display: block;
+}
